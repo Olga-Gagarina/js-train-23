@@ -3,6 +3,36 @@
 
 // Клас TeaMaker відповідає за загальні дії, необхідні для приготування чаю.
 class TeaMaker {
+  makeTea(){
+   this.boilWater();
+ this.addTeaLeaves();
+   this.#steepTea();
+    this.pourIntoCup();
+    this.addCondiments();
+    this.serveTea();
+    this.takeDrink();
+  }
+  boilWater() {
+    console.log(`Кип'ятимо воду....`);
+  } 
+  addTeaLeaves() {
+    console.log(`Додаємо чайні листки....`);
+  }
+  #steepTea() {
+    console.log(`Заварюємо чай....`);
+  }
+  pourIntoCup() {
+    console.log(` Переливаємо чай в чашку.... `);
+  }
+  addCondiments() {
+    //Цей метод залишається пустим і може бути перевизначеним у підкласах
+  }
+  serveTea() {
+    console.log(`Чай подається!`);
+  }
+  takeDrink() {
+   
+}
   // Робимо метод makeTea, який викликає всі кроки приготування чаю по черзі boilWater, addTeaLeaves, #steepTea,
   // pourIntoCup, addCondiments, serveTea.
   // Робимо метод boilWater, який відповідає за кип'ятіння води та виводить в консоль Кип'ятимо воду....
@@ -15,11 +45,33 @@ class TeaMaker {
 
 // Клас GreenTeaMaker є підкласом класу TeaMaker та додає інгредієнти для зеленого чаю.
 class GreenTeaMaker extends TeaMaker {
+  addCondiments() {
+    console.log(
+      `Додаємо мед, щоб приготувати зелений чай... `
+    );
+  }
+  serveTea() {
+    console.log(`Зелений чай з медом  подається!`);
+  }
+  takeDrink() {
+    console.log(`Смачного!`);
+  }
   // Робимо метод addCondiments, який виводить в консоль Додаємо мед, щоб приготувати зелений чай...
 }
 
 // Клас BlackTeaMaker є підкласом класу TeaMaker та додає інгредієнти для чорного чаю.
 class BlackTeaMaker extends TeaMaker {
+  addCondiments() {
+    console.log(
+     ` Додаємо мед, щоб приготувати чорний чай...`
+    );
+  }
+  serveTea() {
+    console.log(`Чорний чай з медом  подається!`);
+  }
+  takeDrink() {
+    console.log(`Смачного!`);
+  }
   // Робимо метод addCondiments, який виводить в консоль Додаємо мед, щоб приготувати чорний чай...
 }
 
@@ -27,8 +79,9 @@ console.log("Завдання 3 ====================================");
 // Після виконання розкоментуйте код нижче
 
 // Створюємо екземпляри класів GreenTeaMaker та BlackTeaMaker.
-// const greenTeaMaker = new GreenTeaMaker();
-// greenTeaMaker.makeTea();
+const greenTeaMaker = new GreenTeaMaker();
+greenTeaMaker.makeTea();
 
-// const blackTeaMaker = new BlackTeaMaker();
-// blackTeaMaker.makeTea();
+const blackTeaMaker = new BlackTeaMaker();
+blackTeaMaker.makeTea();
+
